@@ -10,12 +10,12 @@ interface AttackGraphTabProps {
 const AttackGraphTab = ({ nodes }: AttackGraphTabProps) => {
   return (
     <Card className="bg-slate-900/50 border-slate-800">
-      <CardHeader>
-        <CardTitle className="text-white">Граф атаки</CardTitle>
-        <CardDescription>Визуализация связей между скомпрометированными объектами</CardDescription>
+      <CardHeader className="p-4 lg:p-6">
+        <CardTitle className="text-white text-lg lg:text-xl">Граф атаки</CardTitle>
+        <CardDescription className="text-xs lg:text-sm">Визуализация связей между скомпрометированными объектами</CardDescription>
       </CardHeader>
-      <CardContent>
-        <div className="relative h-[600px] bg-slate-950/50 rounded-lg border border-slate-800 p-8">
+      <CardContent className="p-4 lg:p-6">
+        <div className="relative h-[400px] lg:h-[600px] bg-slate-950/50 rounded-lg border border-slate-800 p-4 lg:p-8 overflow-hidden">
           <svg className="w-full h-full">
             <defs>
               <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
@@ -46,12 +46,12 @@ const AttackGraphTab = ({ nodes }: AttackGraphTabProps) => {
               style={{ left: `${x}px`, top: `${y}px` }}
             >
               <div className={`
-                w-24 h-24 rounded-full flex flex-col items-center justify-center gap-1
-                border-2 backdrop-blur-sm transition-all cursor-pointer
-                ${getRiskColor(node.risk)} hover:scale-110
+                w-16 h-16 lg:w-24 lg:h-24 rounded-full flex flex-col items-center justify-center gap-0.5 lg:gap-1
+                border-2 backdrop-blur-sm transition-all cursor-pointer active:scale-95
+                ${getRiskColor(node.risk)} lg:hover:scale-110
               `}>
-                <Icon name={getNodeIcon(node.type)} size={24} />
-                <span className="text-xs font-medium">{node.type}</span>
+                <Icon name={getNodeIcon(node.type)} size={18} className="lg:w-6 lg:h-6" />
+                <span className="text-[10px] lg:text-xs font-medium">{node.type}</span>
               </div>
               <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 
                             bg-slate-900 border border-slate-700 rounded px-2 py-1 text-xs text-white
@@ -62,7 +62,7 @@ const AttackGraphTab = ({ nodes }: AttackGraphTabProps) => {
           ))}
         </div>
 
-        <div className="mt-4 flex items-center gap-4 justify-center text-sm">
+        <div className="mt-4 flex items-center gap-2 lg:gap-4 justify-center text-xs lg:text-sm flex-wrap">
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full bg-red-500"></div>
             <span className="text-slate-400">Critical</span>
